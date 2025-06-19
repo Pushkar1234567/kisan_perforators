@@ -448,8 +448,35 @@
                 font-size: 2.5rem;
             }
             
+            /* .nav-menu {
+                display: none;
+            } */
+            .nav-toggle {
+                display: block;
+                cursor: pointer;
+                font-size: 24px;
+                color: black;
+            }
+
             .nav-menu {
                 display: none;
+                flex-direction: column;
+                background: white;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                padding: 1rem;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                z-index: 1000;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu li {
+                margin-bottom: 10px;
             }
             
             .services-grid,
@@ -495,6 +522,11 @@
             <div class="logo">
                 <img src="{% static 'images/LOGO.png' %}" alt="Kissan Perforators Logo" height="50">
             </div>  
+
+            <div class="nav-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+
             <nav>
                 <ul class="nav-menu">
                     <li><a href="#home">Home</a></li>
@@ -680,6 +712,9 @@
                 header.style.backdropFilter = 'none';
             }
         });
+        function toggleMenu() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        }
     </script>
 </body>
 </html>
